@@ -20,10 +20,10 @@
 	},
 
 	"extra": {
-		"ipub"	: {
+		"revoke": {
 			"configuration" : {
 				"extensions" : {
-					"webSocketsZMQ" : "Revoke\\WebSocketsZMQ\\DI\\WebSocketsRabbitMQ"
+					"webSocketsRabbitMQ" : "Revoke\\WebSocketsRabbitMQ\\DI\\WebSocketsRabbitMQ"
 				}
 			}
 		}
@@ -47,10 +47,6 @@
 		"tracy/tracy"	: "@dev",
 
 		"pds/skeleton"	: "^1.0"
-	},
-
-	"suggest": {
-		"ext-zmq": "*"
 	},
 
 	"autoload": {
