@@ -5,7 +5,7 @@
  * @copyright      More in license.md
  * @license        http://www.ipublikuj.eu
  * @author         Adam Kadlec http://www.ipublikuj.eu
- * @package        iPublikuj:WebSocketsZMQ!
+ * @package        iPublikuj:WebSocketsRabbitMQ!
  * @subpackage     DI
  * @since          1.0.0
  *
@@ -19,7 +19,7 @@ namespace Revoke\WebSocketsRabbitMQ\DI;
 use Nette;
 use Nette\DI;
 
-use IPub;
+use Revoke;
 use Revoke\WebSocketsRabbitMQ;
 use Revoke\WebSocketsRabbitMQ\Consumer;
 use Revoke\WebSocketsRabbitMQ\Pusher;
@@ -60,7 +60,7 @@ final class WebSocketsRabbitMQExtension extends DI\CompilerExtension
 		/** @var array $configuration */
 		$configuration = $this->getConfig($this->defaults);
 
-		$configuration = new WebSocketsZMQ\Configuration(
+		$configuration = new WebSocketsRabbitMQ\Configuration(
 			$configuration['host'],
 			$configuration['port'],
 			$configuration['persistent'],
@@ -82,7 +82,7 @@ final class WebSocketsRabbitMQExtension extends DI\CompilerExtension
 	 *
 	 * @return void
 	 */
-	public static function register(Nette\Configurator $config, string $extensionName = 'webSocketsZMQ')
+	public static function register(Nette\Configurator $config, string $extensionName = 'webSocketsRabbitMQ')
 	{
 		$config->onCompile[] = function (Nette\Configurator $config, DI\Compiler $compiler) use ($extensionName) {
 			$compiler->addExtension($extensionName, new WebSocketsRabbitMQExtension());
